@@ -1,0 +1,63 @@
+#include <bits/stdc++.h>
+using namespace std;
+class Node{
+public:
+  char data;
+  unordered_map<char,Node*> m;
+  bool isterminal;
+  
+  Node(char b){
+      data = b;
+      isterminal = false;
+  }
+  
+};
+
+class Trie{
+public:    
+  Node * root;
+  Trie(){
+      root = new Node('\0');
+  }
+  
+  
+  void insert(string word){
+      Node * temp = root;
+      for(char ch:word){
+          if(temp->m.count(ch)==0){
+              Node *n  = new Node(ch);
+              temp->m[ch]= n;
+          }
+          temp = temp->m[ch];
+      }
+      temp->isterminal = true;
+  }
+  
+  bool search(string word){
+      Node * temp = root;
+      for(char ch : word){
+          if(temp->m.count(ch)==0){
+              return false;
+          }
+          temp = temp -> m[ch];
+      }
+      return temp->isterminal;
+  }
+};
+int main() {
+	Trie t;
+	int n;
+	vector<string> st = {"cat","bat","car","bar"};
+	for(int i=0;i<st.size();i++){
+	    t.insert(st[i]);
+	}
+	cout<< " Type the queries";
+	cin>>n;
+	while(n--){
+	    string a;
+	    cin>>a;
+	    cout<<t.search(a);
+	}
+
+	
+}
