@@ -1,0 +1,24 @@
+class Solution {
+public:
+void helper_genrateParenthesis(string output,int i,int n,vector<string> &vec,int open,int close){
+    // base condition
+    if(i==n*2){
+        vec.push_back(output);
+        return; 
+    }
+    // opening 
+    if(open<n){
+    helper_genrateParenthesis(output+'(',i+1,n,vec,open+1,close);
+    }
+    // closing
+    if(open>close){
+    helper_genrateParenthesis(output+')',i+1,n,vec,open,close+1);
+    }
+}
+    vector<string> generateParenthesis(int n) {
+        vector <string> vec;
+
+        helper_genrateParenthesis("",0,n,vec,0,0);
+        return vec;
+    }
+};
