@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+class node {
+    public:
+        int data;
+        node *left;
+        node *right;
+    node(int d){
+        data = d;
+        left = NULL;
+        right = NULL;
+    }        
+};
+node* buildtree(){
+    int a;
+    cin>>a;
+    node * n = new node(a);
+    queue <node *> Q;
+    Q.push(n);
+    while(!Q.empty()){
+        node * curr = Q.front();
+        Q.pop();
+        int b,c;
+        cin>>b>>c;
+        if(b!=-1){
+            node *n1=new node(b);
+            curr->left = n1;
+            Q.push(n1);       
+        }
+        
+        if(c!=-1){
+            node *n2 = new node(c);
+            curr->right = n2;
+            Q.push(n2);        
+            
+        }
+        
+     return n;
+        
+        
+    }
+}
+
+int main() {
+  node * tree = buildtree();
+  
+  
+}
