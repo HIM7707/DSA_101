@@ -21,3 +21,20 @@ int floorInBST(TreeNode<int> * root, int X)
     if(min == -1) return -1 ;
     else return X-min;
 }
+// much smarter and better approach by gfg founder
+    TreeNode<int> *ans = NULL;
+    while(root !=NULL){
+        if(root->val >X){
+            root = root->left;
+
+        }
+        else if(root -> val <X){
+           ans = root;
+           root = root-> right;
+        }
+        else{
+            return root-> val;
+        }
+    }
+    if(ans == NULL) return -1;
+    else return ans->val;
