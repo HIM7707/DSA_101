@@ -15,7 +15,7 @@ vector<int> levelOrder(Node* node)
           if(curr == NULL){
               cout<<endl;
               Q.pop();
-              if(!Q.empty()){
+              if(!Q.empty()){   // to prevent the infinite loop if the last element is null -> which will always be.
                   Q.push(NULL);
               }
           }
