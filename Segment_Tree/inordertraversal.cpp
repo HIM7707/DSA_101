@@ -41,3 +41,35 @@ vector<int> levelOrder(Node* node)
       }
       return ans;
     }
+
+
+
+
+
+
+
+
+2. even better code 
+class Solution
+{
+    public:
+    //Function to return the level order traversal of a tree.
+    vector<int> levelOrder(Node* node)
+    {
+      //Your code here
+      vector <int>ans;
+      queue <Node*> Q;
+      Q.push(node);
+      while(!Q.empty()){
+          int sizee = Q.size();
+          for(int i=0;i<sizee;i++){
+              Node* curr = Q.front();
+              ans.push_back(curr->data);
+              if(curr->left !=NULL) Q.push(curr->left);
+              if(curr->right !=NULL) Q.push(curr->right);
+              Q.pop();
+          }
+      }
+      return ans;
+    }
+};
