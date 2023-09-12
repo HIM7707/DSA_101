@@ -58,3 +58,35 @@ int main() {
     }
     return 0;
 }  // } Driver Code Ends
+ // Function to detect cycle in an undirected graph.
+    // IN THIS APPROCH I AM USING A FLAG CHECK_CYCLE TO FIND THE CORRECT ANSWER
+    /*bool check_cycle = false;
+    void helper_isCycle( int curr ,vector<int> adj[],vector<bool> &visited,int previous){
+        visited[curr] = true;
+        for(int neighbour : adj[curr]){
+            if(!visited[neighbour]){
+                helper_isCycle(neighbour,adj,visited,curr);
+            }
+            else {
+                if(neighbour != previous){
+                    check_cycle = true;
+                    return;
+                }
+            }
+        }
+    }
+    bool isCycle(int V, vector<int> adj[]) {
+        // Code here
+        vector<bool> visited (V,false);
+        int previous = -1;
+        //int curr = 0;
+        for(int i=0;i<V;i++){
+            if(!visited[i]){
+                helper_isCycle(i,adj,visited,previous);
+                if(check_cycle) return true;
+            }
+        }
+        return false;
+        
+    }
+    */ 
